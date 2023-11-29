@@ -15,6 +15,3 @@ debug: main
 clean:
 	rm -f ./main
 
-test: main
-	./test.sh
-
