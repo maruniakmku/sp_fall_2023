@@ -109,7 +109,7 @@ Transcarpathian Academy of Art;748;48.60318675;22.285608270374475
 ```
 #include <math.h>
 
-#define PI 3.1415926535
+#define PI 3.14159265358979323846
 
 unsigned haversine(double lat1, double lon1, double lat2, double lon2)
 {
