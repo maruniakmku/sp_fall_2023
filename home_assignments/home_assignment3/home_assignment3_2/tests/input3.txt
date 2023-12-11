@@ -6,11 +6,9 @@ Separate Structural Subdivision of Higher Education Institution Open Internation
 Separate Structucal Subdivision of Higher Education Institution Open International University of Human Development Ukraine Novokakhovsky Institute of Liberal Art;1999;http://www.vmurol.net.ua;50.4647087;30.51241585851129
 Separate structural unit Institute of Innovative Education of Kyiv National University of Construction and Architecture;1990;https://iino.knuba.edu.ua/;50.4265827;30.464151187162013
 Military Institute of Telecommunication and Information technologies named after the Heroes of Kruty;2015;www.viti.edu.ua;50.4313885;30.544610115297722
-Yevhenii Bereznyak Military Academy;2022;;50.46839;30.4685442
 Horlivka Regional Institute of the Higher Educational Institution Open International University of Human Development Ukraine;1999;www.griuu.org;50.4647087;30.51241585851129
 State higher educational institution University of educational management;2007;www.umo.edu.ua;50.4578995;30.4927596
 State organization State Ecological Academy of Post-Graduate Education and Management;1992;dea.edu.ua;50.43203945;30.47630815
-STATE UNIVERSITY OF TRADE AND ECONOMICS;2022;;50.4657162;30.636074191116748
 State University of Information and Communication Technology;1979;www.dut.edu.ua;50.42872625;30.47609670678203
 State University of Infrastructure and Technologies;2016;duit.edu.ua;50.4676992;30.507376016974828
 Donetsk In-Service Teacher Training Institute;2000;https://ippo.dn.ua/;48.7357198;37.5877638
@@ -19,15 +17,11 @@ Higher Education Institution 'Open International UNIVERSITY of Human Development
 Higher education institution Kyiv Institute of Business and Technology LLC;1992;www.kibit.edu.ua;50.413178200000004;30.54795542460306
 Higher Educational Institution Academician Yuriy Bugay International Scientific and Technical University;1993;www.istu.edu.ua;50.2794582;30.4072985
 Higher education institution International University of Finance;1993;http://iuf.kpi.ua/;50.2794582;30.4072985
-Institute of Public Administration and Research in Civil Protection;;idundcz.dsns.gov.ua;50.5001344;30.4503247
 Ukrainian State Employment Service Training Institute;1993;www.ipk.edu.ua;50.42760625;30.502469457458012
-Institute of the Department of the State Protection of Ukraine of Taras Shevchenko National University of Kyiv;2010;;50.44207715;30.511168183395394
-Institute of Management and Law, Yaroslav Mudryi National Law University;2014;;50.4491632;30.445607868046984
 Mykhailo Boichuk Kyiv State Academy of Decorative Applied Arts and Design;1964;www.kdidpmid.edu.ua;50.4092821;30.5505622
 Kyiv Municipal Academy of Circus and Performing Arts;1975;www.kmaecm.edu.ua;50.4391266;30.49993808455296
 R. Glier Kyiv Municipal Academy of Music;1868;https://glieracademy.org/;50.4406664;30.502728628638295
 Kyiv Orthodox Theological Academy;1615;www.kpba.edu.ua;50.45568845;30.52282121517615
-Kyiv Agrarian University of the National Academy of Agrarian Sciences of Ukraine;;www.kaunaas.com;50.391567800000004;30.485643054514682
 Kyiv Cooperative Institute of business and law;2010;http://kkibp.kiev.ua.;50.3920018;30.493809858475686
 KYIV NATIONAL ECONOMIC UNIVERSITY NAMED AFTER VADYM HETMAN;1906;www.kneu.edu.ua;50.4562619;30.44032821859535
 Kyiv National Linguistic University;1948;http://www.knlu.edu.ua;50.42764415;30.51710525274089
@@ -40,8 +34,6 @@ Borys Grinchenko Kyiv University;1874;http://kubg.edu.ua/;50.4527813;30.50158339
 Kyiv University of Law of the National Academy of Sciences of Ukraine;1995;http://www.kul.kiev.ua;50.45470095;30.52433470685633
 Kyiv University of Tourism, Economics and Law;1995;www.kutep.ua;50.4691244;30.611314
 Kiev Vocational College of Private Higher Educational Institution University of Modern Knowledge;2011;https://usz.org.ua/;50.431308;30.5164054
-College of Kyiv University for Market Relations;2009;;50.42614225;30.61255661833336
-College of the Ukrainian Academy of Hairdressing and Decorative Cosmetics of the Kyiv University of Culture.;2010;;50.42545245;30.534986166701678
 Serge Lifar Kyiv Municipal Academy of Dance;2001;https://dance-academy.kiev.ua/;50.5214536;30.624789525915453
 Communal Higher Educational Establishment of Kyiv Regional Council Academy of Arts;1930;https://www.chubynsky.best/;50.43727365;30.554397721333093
 Luhansk State Academy of Culture and Arts;2002;http://ldakm.edu.ua;50.44801325;30.50963125442217
@@ -70,7 +62,6 @@ Institute for Ecology Economy and Law;2004;ieep.org.ua;50.445951;30.5065941
 PRIVATE HIGHER EDUCATIONAL ESTABLISHMENT KYIV MEDICAL UNIVERSITY;1992;http://kmu.edu.ua;50.432532;30.5160673
 Private Higher Educational Institution Kyiv University of Culture;2000;https://kuk.edu.ua/;50.4220186;30.540961630831973
 International academy of ecology and medicine;2011;http://maem.kiev.ua;50.415206600000005;30.66488093119352
-INTERNATIONAL ACADEMY OF CERTIFICATION OF ACCOUNTANTS AND AUDITORS PRIVATE INSTITUTION OF HIGHER EDUCATION;;;50.4500658;30.51858949287574
 Private Higher Educational Institution International Institute of Business;1993;www.iib.com.ua;50.45337765;30.31857630332159
 Private Higher Educational Institution International Management Institute (MIM-Kyiv);1993;mim.kyiv.ua;50.451845649999996;30.469808633885407
 Private higher educational institution International College of St. Luka;2012;http://medcollege.kyiv.ua;50.4163737;30.66049391763189
@@ -86,17 +77,9 @@ PRIVATE HIGHER EDUCATION INSTITUTION INTERNATIONAL EUROPEAN UNIVERSITY;2019;http
 Volodymyr Dahl East Ukrainian National University;1920;http://snu.edu.ua;50.4208612;30.5284004
 V.I. Vernadsky Taurida National University;1918;www.tnu.edu.ua;50.448769;30.48544040357889
 Berdyansk University Of Managementand Business Limited Liability Company;1992;http://bumib.edu.ua;46.75914095;36.79464374450235
-Limited Liability Company Higher Educational Establishment AMERICAN UNIVERSITY KYIV;;https://auk.edu.ua/;50.4591329;30.52700929755823
 Limited liability company Kyiv banking institute;1997;www.kibs.kiev.ua;50.4513316;30.51923184623176
-Ukrainian Academy of Hairdressing and Decorative Cosmetics of Kyiv University of Culture;2002;;50.42545245;30.534986166701678
 Military medical academy of Ukraine;2000;http://uvma.mil.gov.ua/;50.435963150000006;30.465877796363756
-Dragomanov Ukrainian State University;2022;;50.445951;30.5065941
 Ukrainian Stock Market Development Institute;1991;www.usmdi.org;50.4562619;30.44032821859535
-University of artificial intelligence and digitalization;;https://ai-university.com.ua/;50.4563052;30.4956495
-Separate Division Vinnytsia Faculty of Kyiv National University of Culture and Arts;2000;;49.245647399999996;28.48254447180623
-Autonomous subdivision Vinnytsia Faculty of Management and Business of Kyiv University of Culture;2000;;49.245647399999996;28.48254447180623
-Vinnitsa branch of College for Economics and Technology of Kiev Institute of Business and Technology LLC;2003;;49.2701718;28.5097874
-Vinnitsa branch of Kyiv Institute of Business and Technology LLC;2002;;49.2701718;28.5097874
 Vinnytsia Mykhailo Kotsiubynskyi State Pedagogical University;1912;www.vspu.edu.ua;49.2425212;28.497601774167368
 Vinnytsia Cooperative Institute;1957;http://vki.vin.ua;49.24401;28.4851854
 Vinnytsia Educative and Research Institute of West Ukrainian National University;1995;http://www.vie.vin.ua/;49.2614958;28.5101676
@@ -109,7 +92,6 @@ Communal Higher Education Institution Vinnytsia Humanities Pedagogical College;1
 Private higher educational establishment Vinnytsia Institute of designing of clothes and entrepreneurship;1992;http://vikop.org.ua;49.22316845;28.419496053121577
 Private Higher Educational Establishment Vinnytsia Financial and Economic University;1994;http://www.vfeu.edu.ua;49.221505949999994;28.446021301824175
 Private Higher Educational Institution Kherson Economics and Law Institute;1995;http://www.hepi.edu.ua;46.65923995;32.64383018864851
-The business unit Professional college designing clothes Private higher education institution  Vinnytsya Institute designing clothes and Entrepreneurship;2000;;49.2320341;28.420722
 Institution of Higher Education Private Joint-Stock Company Volyn Institute for Economics & Management;1994;www.viem.edu.ua;50.7428466;25.3813712
 Separate Structural Subdivision Lutsk Institute of Human Development of Higher Education Institution Open International University of Human Development Ukraine;2000;http://lutsk.uu.edu.ua;50.77603975;25.37801565869345
 Volyn Orthodox Theological Academy;2000;website: www.vpba.edu.ua;50.7453936;25.3260708
@@ -118,7 +100,6 @@ Lesya Ukrainka Volyn National University;1940;vnu.edu.ua;50.7471399;25.331400807
 State Higher Education Establishment Donetsk National Technical University;1921;www.donntu.edu.ua;48.2774764;37.1806297
 The Municipal Higher Educational Institution Lutsk Pedagogical College of the Volyn Regional Council;1939;lpc.org.ua;50.74496605;25.338354936823258
 Municipal Institution Of Higher Education Volyn Medical Institute Of The Volyn Oblast Counsil;1944;www.vmi.volyn.ua;50.741294499999995;25.31833111041726
-Lutsk Branch of West Ukrainian National University;2000;;50.7561099;25.3789822
 Lutsk Biotechnical Institute Higher Educational Institution Academician Yuriy Bugay International Scientific and Technical University;2012;lbi.lutsk.ua;50.74652805;25.382358907587665
 LUTSK NATIONAL TECHNICAL UNIVERSITY;1966;https://lntu.edu.ua;50.725537849999995;25.297537349961857
 Private Higher Education Institution Academy of Recreational Technologies and Law;2014;www.artip.com.ua;50.77603975;25.37801565869345
@@ -147,15 +128,11 @@ Ukrainian State University of Science and Technologies;2021;http://ust.edu.ua;48
 University of Customs and Finance;1991;umsf.dp.ua;48.45973445;35.056214018100995
 Dniprovsky State Technical University;1920;www.dstu.dp.ua;48.536472149999994;34.5596252
 MUNICIPAL ESTABLISHMENT MYROSLAV SKORYK KAMYANS`KE PROFESSIONAL MUSIC COLLEGE  OF DNIPRO REGIONAL COUNCIL;1967;dndzmusic.in.ua;48.50203705;34.62037943572243
-Public Joint Stock Company afiiliate Private High Education Institution Zaporizhzhia Institute of Economics and Information Technologies in the city of Kryvyi Rih;2000;;47.9126916;33.37930782470863
-State university of economics and tehnology;;duet.edu.ua;47.88726605;33.38697322091749
 Donetsk National University of Economics and Trade named after Mykhailo Tugan-Baranovsky;1920;www.donnuet.edu.ua;47.9674481;33.42853769938377
 The municipal institution Kryvyi Rih Regional Professional Music College of Dnipropetrovsk regional council;1961;komu.dp.ua;47.898648800000004;33.334473740974985
 Krivorozhsky Branch of Private Higher Education Establishment European University;2000;http://www.e-u.edu.ua/;47.9009519;33.343349137150526
 Kryvyi Rih State Pedagogical University;1930;http://kdpu.edu.ua;47.9078063;33.4102636
-Kryvyi Rih educational and scientific institute of Donetsk state university of internal affairs;;https://dnuvs.ukr.education;47.8984171;33.40609515
 Kryvyi Rih National University;1922;knu.edu.ua;47.9053062;33.40137847017759
-Educational and Scientific Institute of Business and Hospitality of Mykhailo Tuhan-Baranovskyi Donetsk National University of Economics and Trade;2000;;47.109830200000005;37.525830922653455
 Private higher educational institution Institute of business administration;1995;www.pvnz-ida.at.ua;47.9073305;33.4133854
 Nikopol faculty of the Ukrainian State University of Science and Technologies;2021;http://nmetau.edu.ua/ua/mfac/i3002;47.57040885;34.38139160875668
 Private Higher Educational Institution Nikopol Economic Universiti;1993;neu.edu.ua;47.55759415;34.4062298
@@ -173,24 +150,19 @@ Zhytomyr Ivan Franko State University;1919;zu.edu.ua;50.248780249999996;28.67355
 The Zhytomyr Institute of the Private Joint Stock Company Higher education institution The Interregional Academy of Personnel Management ;2000;maup.zt.ua;50.26118475;28.65422254242006
 Zhytomyr Medical Institute Zhytomyr Regional Council;1954;zhim.org.ua;50.2481277;28.676870251381214
 Private Higher Educational institution of Ukraine Korosten tehnical College;1999;kortek.com.ua;50.95326765;28.63863765
-Separate Division Uzhhorod Faculty of Kyiv National University of Culture and Arts;2000;;48.60318675;22.285608270374475
 State University Uzhhorod National University;1945;http://www.uzhnu.edu.ua;48.62584645;22.30348841735823
 Transcarpathian Academy of Art;2003;artedu.uz.ua;48.60318675;22.285608270374475
 Augustyn Voloshyn Carpathian University;2001;www.kau.com.ua;48.62658835;22.290964597265912
 Municipal establishment of higher education Academy of culture and arts by Transcarpathian regional council;2022;https://akim.uz.ua/ua/;48.60318675;22.285608270374475
 East-European Slavic University;2012;http://eesu.uz.ua;48.59812805;22.31320580925975
 Uzhgorod Institute of Trade and Economics of State University of Trade and Economics;2000;utei-knteu.org.ua;48.5955549;22.3099571
-Uzhhorod Faculty of Management and Business of Kyiv University of Culture;2000;;48.60318675;22.285608270374475
 Ferenc Rakoczi II Transcarpathian Hungarian College of Higher Education;1996;www.kmf.uz.ua;48.2066782;22.64328262715015
 Mukachevo State University;1997;http://www.msu.edu.ua;48.44701695;22.71403646765323
 Separate Structural Subdivision Of Higher Education Institution Open International University Of Human Development Ukraine Carpathian Institute Of Entrepreneurhip;2000;https://kipuu.com.ua;48.1858799;23.2657651
 Zakarpatskyi Education and Research Institute of the West Ukrainian National University;2000;https://www.wunu.edu.ua/;48.5586377;22.9761177
 Berdyansk State Pedagogical University;1953;https://bdpu.org.ua;46.754296100000005;36.78425677502136
-Separate Division Donetsk Faculty of Kyiv National University of Culture and Arts;2000;;47.8819919;35.0682501
-Separate Division Zaporizhzhia Faculty of Kyiv National University of Culture and Arts;2000;;47.8819919;35.0682501
 SE Professional College of the Energodar Institute of State and Municipal Management named after R.Khenokh of the Classical Private University;2000;http://eidmu.zp.ua;47.5017847;34.6466109
 Energodar Institute of State and Municipal Government of R.G. Khenokh Classical Private University;2003;http://eidmu.zp.ua;47.5017847;34.6466109
-Zaporizhzhia State Medical and Pharmaceutical University;1955;;47.8393184;35.121183
 Zaporizhzhia National University;1930;www.znu.edu.ua;47.8200956;35.1815879246562
 Classic Private University;1992;www.zhu.edu.ua;47.82436215;35.17707209274898
 College of Melitopol Institute of Public and Municipal Administration of Classic Private University;2015;midmu_kpu@com.ua;46.8281121;35.3232167
@@ -210,28 +182,23 @@ College of business and informatics of Private higher educational establishment 
 Private higher educational establishment Galytska Academy;2006;http://www.imega.edu.ua/;48.9431838;24.74042115
 Private Higher Education Institution Ivano-Frankivsk Academy Ivana Zolotoustoho;2018;http://www.ifaiz.edu.ua;48.93065395;24.710866485231094
 Vasyl Stefanyk Precarpathian National University;1940;https://pnu.edu.ua;48.9146331;24.701001339626597
-Prykarpattia of Department (Ivano-Frankivsk);2014;;48.910539;24.702145
 Kherson State University;1917;www.kspu.edu;46.6462952;32.629321717748766
 Institute for Natural Resources Management of KROK University;2011;www.iupr.krok.edu.ua;48.5262428;25.0847086
 Kolomyia Educational and Research Institute of Vasyl Stefanyk Precarpathian National University;2000;https://knni.pnu.edu.ua/;48.5344289;25.047644114151126
 Kolomyia Pedagogical Professional College of the Ivano-Frankivsk Regional Council;1939;www.pedcollege.kolomyya.org;48.5311783;25.03862608842369
 Kosiv Institute of Applied and Decorative Arts of Lviv National Academy of Arts;1882;http://kipdm.lnam.edu.ua;48.31740005;25.093783850797376
-Kiev Institute of Business and Technologies;2003;;49.80413875;30.117770834034406
 Bila Tserkva institute of continuous professional education;1979;binpo.com.ua;49.78412915;30.16324440332216
 Bila Tserkva National Agrarian University;1920;http://btsau.edu.ua;49.7929688;30.1124031
-Separate Structural Subdivision Bilotserkivskyi Educational and Manufacturing Centre of the State University of INTELLECTUAL Technologies and Communications;2020;;49.837311299999996;30.062073299031198
 Separate Structural Subdivision of Higher Education Institution Open International University of Human Development Ukraine Bila Tserkva Institute of Economics and Management;1999;www.bc-uu.com.ua;49.7915802;30.1520333
 College Intelligence Private higher educational institution  Boryspil Institute of Municipal Management at the Interregional Academy of Personnel Management ;2009;www.bimmmaup.jimbo.com.ua;50.3816242;30.952395668836587
 Private higher education institution  The Boryspil institute of municipal management patronage by Inter-regional Academy of personnel management ;2000;www.bimmmaup.jimdo.com;50.3816242;30.952395668836587
 Kollege The Higher education Institution  University of Economics and Technology;2002;www.etu.edu.ua;50.522595949999996;30.821679781480498
 Private High Educational Establishment Nova Kakhovka Polytechnic Institute;1999;www.nkpi.com.ua;46.74681205;33.370636806968264
 Ukrainian Institute of Arts and Sciences;1999;www.ugi.edu.ua;50.564657;30.2424334
-State Tax University;1921;;50.52233235;30.22719930364546
 Hryhorii Skovoroda University in Pereiaslav;1986;ushp.edu.ua;50.08273885;31.4751412792019
 Private higher educational esteblishment Association agency of Ukrainian defense Fastiv Automobile and Roab Technical College;2004;fast.org.ua;50.08231475;29.922409049734313
 PRIVATE HIGHER EDUCATIONAL INSTITUTION INSTITUTE OF PSYCHOLOGY AND ENTREPRENEURSHIP;2017;ipp.edu.ua;50.4308628;30.6533214
 The Yahotyn Institute of the Private Joint Stock Company Higher education institution The Interregional Academy of Personnel Management ;2000;www.maup-yagotin.webnode.com.ua;50.23874455;31.805168836572943
-Separate Division Kirovohrad Faculty of Kyiv National University of Culture and Arts;2000;;48.50467875;32.26059818408545
 Separate Structural Subdivision of Higher Education Institution Open International University of Human Development Ukraine Central Ukrainian Institute of Human Development;1999;http://vmurol.kr.ua;48.5194211;32.28235082870714
 Donetsk state university of internal affairs;1961;https://dnuvs.ukr.education;47.06019955;37.50479311492438
 Donetsk National Medical University;1930;https://dnmu.edu.ua;48.9663855;37.8168954
@@ -270,16 +237,13 @@ IT STEP UNIVERSITY;2016;https://itstep.edu.ua;49.8579183;24.0259771
 Private Establishment Institution Kharkiv School of Architecture;2017;www.kharkiv.school;49.987136050000004;36.22451973241124
 Ukrainian Academy of Printing;1930;http://www.uad.edu.ua;49.86974695;24.007559747687544
 Drohobych Ivan Franko State Pedagogical University;1940;http://dspu.edu.ua;49.3550957;23.501196610994263
-Sambir Branch of West Ukrainian National University;1998;;49.5263748;23.2021586
 The Precarpathian Mykhailo Hrushevsky Institute of the Private Joint Stock Company Higher education institution The Interregional Academy of Personnel Management ;2000;https://mauptruskavets.in.ua;49.27809565;23.51525265670367
 Lviv National Environmental University;1856;LNUP.EDU.UA;49.897835549999996;24.09149812084174
 International Technological University Mykolayiv Polytechnics;2003;http://mpi.mk.ua/;46.9754727;31.970515144734847
 Separate Division Mykolaiv Branch of Kyiv National University of Culture and Arts;1971;knukim.edu.ua;46.968623050000005;31.9856278879816
 Autonomous subdivision Mykolaiv Faculty of Management and Business of Kyiv University of Culture;2000;https://kuk-university.com;46.95596275;31.951076999999998
 Separate Structural Unit Shipbuilders Professional College of the Admiral Makarov National University of Shipbuilding;2013;nuos.edu.ua;46.9680697;31.960235489213407
-College Private Institution of Higher Education Pylyp Orlyk International Classical University;2014;;46.9714764;32.01839468478296
 Mykolayiv Branch of Private Higher Education Establishment European University;1997;http://www.e-u.edu.ua/;46.9798543;31.9824588
-Mykolayiv municipal academic College;2010;;46.94604495;32.03985090994832
 Mykolayiv National Agrarian University;2002;www.mnau.edu.ua;46.9649551;31.965203675614628
 V.O. Sukhomlynskyi Mykolaiv National University;1913;www.mdu.edu.ua;46.979093750000004;31.97971738146929
 Mykolaiv Faculty of Marine and River Transport of State University of Infrastructure and Technologies;2017;duit.org.ua;50.4676992;30.507376016974828
@@ -292,11 +256,8 @@ Kherson Educational-Scientific Institute of Admiral Makarov National University 
 Petro Mohyla Black Sea National University;1996;www.chdu.edu.ua;46.97175805;32.015270384446566
 Pervomaisk Educational and Scientific Institute of Admiral Makarov National Shipbuilding University;1997;http://www.ppi.net.ua;48.0324342;30.8479918
 Azov Maritime Institute of National University Odessa Maritime Academy;1996;onma.edu.ua;47.07695215;37.51067332863984
-Separate Division Odesa Faculty of Kyiv National University of Culture and Arts;2000;;46.4517391;30.7209168
 The state institution South Ukrainian National Pedagogical University named after K. D. Ushynsky;1817;www.pdpu.edu.ua;46.480501149999995;30.72136058592111
 State University of INTELLECTUAL Technologies and Communications;2020;https://new.suitt.edu.ua/;46.48246795;30.72333460364556
-Naval Institute National University Odessa Maritime Academy;2000;;46.4831463;30.71390769533103
-ODESSA REGIONAL ACADEMY OF IN - SERVICE EDUCATION;;http://ooiuv.odessaedu.net;46.3425916;30.5682279
 National University Odessa Maritime Academy;1944;www.onma.edu.ua;46.4831463;30.71390769533103
 Odessa Polytechnic National University;1918;https://op.edu.ua;46.45528415;30.7513869
 Odessa State Academy of Civil Engineering and Architecture;1930;http://odaba.edu.ua;46.4839761;30.717022900367446
@@ -311,7 +272,6 @@ Odessa National Maritime University;1930;www.onmu.org.ua;46.4839104;30.7195139
 Odesa National University of Technology;1902;https://www.ontu.edu.ua;46.45921745;30.74440288662294
 Odesa I.I. Mechnikov National University;1865;http//www.onu.edu.ua;46.48759775;30.73131176980418
 Private higher educational institution Odessa college of computer technologies Server;2000;server.odessa.ua;46.4428278;30.721734449999992
-PRIVATE HIGHER EDUCATION INSTITUTION ODESSA INTERNATIONAL MEDICAL UNIVERSITY;2019;;46.461805600000005;30.746256701206196
 Private Higher Educational Institution Odesa Technological University STEP;2018;https://otu.itstep.org/;46.4870272;30.72783007309894
 Private Institution Maritime Institute of Postgraduate Education named After Rare Admiral Fyodor F. Ushakov;2015;http://aumi.institute;46.63799935;32.62915995
 Kherson State Maritime Academy;2003;https://ksma.ks.ua/;46.637719849999996;32.61645678111143
@@ -325,7 +285,6 @@ Poltava Polytechnic Professional College, a Separated Structural Unit of Nationa
 National University Yuri Kondratyuk Poltava Polytechnic;1818;www.nupp.edu.ua;49.5761744;34.56707035257149
 Poltava Branch of National University of Food Technologies;2001;http://pzfnuft.pl.ua;49.59047425;34.54326254785953
 Poltava State Agrarian University;1920;http://www.pdau.edu.ua;49.5959804;34.55342496346188
-Poltava State Medical University;;www.pdmu.edu.ua;49.58224935;34.548913965822955
 Poltava Business Institute Higher Educational Institution Academician Yuriy Bugay International Scientific and Technical University;2000;www.pib.edu.ua;49.5884388;34.53957055
 Poltava V.G. Korolenko National Pedagogical University;1914;http://www.pnpu.edu.ua;49.59100975;34.554936598077695
 Poltava University of Economics and Trade;1961;http://puet.edu.ua;49.59481;34.54297
@@ -346,7 +305,6 @@ Rivne State University of the Humanities;1953;www.rshu.edu.ua;50.61263735;26.252
 Rivne Institute of Kyiv University of Law of the National Academy of Sciences of Ukraine;1997;rivne.kul.kiev.ua;50.61702885;26.248225571501862
 Separate Structural Subdivision of Higher Education Institution Open International University of Human Development Ukraine Dubno Branch;2006;https://dubno.uu.edu.ua;50.47564605;25.97178505
 The National University of Ostroh Academy;1994;http://www.oa.edu.ua;50.32919665;26.513120710351615
-NADSLUCHANSKY INSTITUTE THE NATIONAL UNIVERSITY OF WATER AND ENVIRONMENTAL ENGINEERING;2012;;51.0019405;26.7458879
 Sumy Regional Institute of Postgraduate Pedagogical Education;1994;soippo.edu.ua;50.88512265;34.8328591
 Sumy Branch of the National University of Food Technologies;2004;zf.stpp.sumy.ua;50.90930655;34.78775970265228
 Sumy branch of Kharkiv National University of Internal Affairs;2000;sumysf.univd.edu.ua;50.893367749999996;34.833255949999995
@@ -366,7 +324,6 @@ Kremenets Taras Shevchenko Regional Academy of Humanities and Pedagogy;1969;kogp
 Chortkiv Educative and Research Entrepreneurship and Business Institute of West Ukrainian National University;1995;http://chnnipb.wunu.edu.ua/;49.0184713;25.7894312
 Military Institute of Armored Forces of National Technical University Kharkiv Polytechnic Institute;2003;web.kpi.kharkov.ua/military;49.976457350000004;36.16544022344024
 Military non-commissioned officers college Kharkiv national air force university;2000;hups.mil.gov.ua;50.0254324;36.248156
-STATE BIOTECHNOLOGICAL UNIVERSITY;;;50.00599725;36.24548632429667
 MUNICIPAL ESTABLISHMENT KHARKIV HUMANITARIAN-PEDAGOGICAL ACADEMY OF KHARKIV REGIONAL COUNCIL;1920;www.hgpa.kharkov.com;49.98746175;36.25059110748995
 COMMUNAL INSTITUTION KHARKIV PROFESSIONAL MUSIC COLLEGE B.M. LYATOSHYNSKY OF KHARKIV REGIONAL COUNCIL;1883;hmu.net.ua;49.988261800000004;36.24349320767392
 Educational scientific professional pedagogical Institute Ukrainian Engineering Pedagogics Academy (t. Bakhmut);2004;http://www.nnppi.in.ua;48.590900149999996;37.97608857892534
@@ -380,7 +337,6 @@ Kharkiv Institute of Economics of Market Relations and Management;1993;http://kh
 Private Higher Educational Establishment Kharkov institute of management staff;2005;www.kims.kh.ua;49.94638845;36.279514287967615
 Private Institution of Higher Education Kharkiv International medical University;2017;https://khimu.edu.ua;49.980306049999996;36.252266852595085
 Kharkiv University of Humanities People's Ukrainian Academy;1991;http://www.nua.kharkov.ua;50.00450815000001;36.258930957219846
-Private Establishment of Higher Education Kharkiv Institute of Medicine and Biomedical Sciences;;https://khim.edu.ua/;50.00450815000001;36.258930957219846
 Private higher educational institution Kharkiv University of Technology STEP;2018;https://khtu.itstep.org;49.9821811;36.2428934
 Kharkiv Institute of Business and Management Limited Liability Company;1992;hibm.com.ua;50.001417599999996;36.24061538894016
 UNIVERSITY OF KHARKIV;1999;www.hepu.edu.ua;49.934152999999995;36.263459883568984
@@ -403,8 +359,6 @@ O.M. Beketov National University of Urban Economy in Kharkiv;1922;http://www.kna
 Ivan Kozhedub Kharkiv National Air Force University;1930;http://www.hups.mil.gov.ua;50.0144159;36.242224686438874
 Kharkiv National University of Radio Electronics;1930;http://nure.ua;50.014976250000004;36.227779579747896
 Kharkiv Applied College of Transport Technology;1953;hktt.edu.ua;49.97407525;36.23392907133572
-College at Private Higher Educational Institution Kherson Economics and Law Institute;2000;;46.65923995;32.64383018864851
-College of Private higher education institution International university of business and law;2000;;46.6674184;32.6210453
 Communal Higher Educational Establishment Kherson Academy of Continuing Education of Kherson Regional Council;1995;academy.ks.ua;46.676075749999995;32.612575897631956
 Separate Structural Subdivision of Higher Education Institution Open International University of Human Development Ukraine Khmelnytskyi Institute of Social Technologies;1999;http://www.hist.km.ua/;49.7089487;28.824985515421957
 Bohdan Khmelnytskyi National Academy of the State Border Guard Service of Ukraine;1992;https://nadpsu.edu.ua/;49.4210068;27.00976228736255
@@ -422,17 +376,13 @@ Kamianetz-Podilsk Branch of the National University of Food Technologies;2008;us
 Kamianets-Podilskyi Ivan Ohiienko National University;1918;www.kpnu.edu.ua;48.675115399999996;26.587102954631554
 Educational and Rehabilitation Institution of Higher Education Kamianets-Podilskyi State Institute;2021;https://kpdi.edu.ua/;48.665373;26.586920834013412
 Private institution of higher education Kamyanets-Podilsky tax institute;2017;https://podatkovyi.com/;48.6776065;26.5851412
-Separate Division Cherkasy Faculty of Kyiv National University of Culture and Arts;2000;;49.4447574;32.04775335978813
 Private Institution of Higher Education Rauf Ablyazov East European University;1992;http://suem.edu.ua;49.4050916;32.05444890698723
 The Severodonetsk Institute of the Private Joint Stock Company Higher education institution The Interregional Academy of Personnel Management ;2000;sd.maup.com.ua;48.9555064;38.4911712
-Territorially separated structural unit Cherkasy Educational-Scientific Department of Ivan Franko National University of Lviv;2022;;49.408045;32.05388349961025
 Cherkasy Medical Academy;1930;www.medacademy.ck.ua;49.4465045;32.060888
 Cherkassy Branch of Private Higher Education Establishment European University;2000;http://www.e-u.edu.ua/;49.23708525;31.603824119411264
 Cherkasy State Business College;1966;csbc.edu.ua;49.40656505;32.055524112543964
 Cherkasy Institute of Fire Safety named after Chornobyl Heroes of National University of Civil Defence of Ukraine;1973;chipb.dsns.gov.ua;49.454280499999996;32.010966800551714
 Cherkasy art-technical college;1974;chtk.ck.ua;49.439014099999994;32.023153105580604
-Uman branch of Kyiv Institute of Business and Technology LLC;2003;;48.75068545;30.21276538982773
-Uman Branch of Private Higher Education Establishment European University;2000;;48.7568532;30.2223179
 PAVLO TYCHYNA UMAN STATE PEDAGOGICAL UNIVERSITY;1930;https://udpu.edu.ua;48.7492922;30.22380583124923
 Uman National University of Horticulture;1844;www.udau.edu.ua;48.7684086;30.2345714
 Public Institution of the Pre-Higher Education The Korsun-Shevchenkivskiy Pedagogical Applied College named after Taras Shevchenko of the Cherkasy Oblast Council;1923;KSHPK.ORG.UA;49.4167631;31.26069
@@ -448,5 +398,4 @@ The North-Ukrainian Institute of the Private Joint Stock Company Higher educatio
 Chernigov istitute information business and law of Higher Educational Institution Academician Yuriy Bugay International Scientific and Technical University;2000;http://www.institut.cn.ua;51.49606905;31.303254768818963
 Chernihiv regional institute of post-graduate pedagogical education named after K.D.Ushynskyi;2001;choippo.edu.ua;51.6944279;30.7942477
 Separated Subdivision National University of Life and Environmental Sciences of Ukraine Nizhyn Agrotechnical Institute;1895;nati.org.ua;51.01709265;31.881979513067826
-Kiev Institute of Business and Technologies;2002;;51.03004395;31.894835740638978
 Nizhyn Mykola Gogol State University;1805;www.ndu.edu.ua;51.053187050000005;31.881345928239124
