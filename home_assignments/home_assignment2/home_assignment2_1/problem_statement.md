@@ -33,7 +33,7 @@
 #### Вхідні дані
 
 ```
-12
+13
 Hello
 
 for (int i = 0; i < n; ++i) { printf("%i\n"); }
@@ -46,6 +46,7 @@ if (!file_exists(files[i])) { printf("File doesn't exist, will create a new one.
 ())
 (}
 {]
+([)]
 ```
 
 #### Вихідні дані
@@ -55,6 +56,7 @@ valid
 valid
 valid
 valid
+invalid
 invalid
 invalid
 invalid
