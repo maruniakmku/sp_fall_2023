@@ -1,0 +1,14 @@
+13
+Hello
+
+for (int i = 0; i < n; ++i) { printf("%i\n"); }
+if (!file_exists(files[i])) { printf("File doesn't exist, will create a new one.\n"); }
+(
+)
+)(
+((
+(()
+())
+(}
+{]
+([)]

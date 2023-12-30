@@ -1,0 +1,4 @@
+National University of Kyiv-Mohyla Academy;1991;http://www.ukma.edu.ua;50.465614349999996;30.52038751888054
+State University Uzhhorod National University;1945;http://www.uzhnu.edu.ua;48.62584645;22.30348841735823
+Transcarpathian Academy of Art;2003;artedu.uz.ua;48.60318675;22.285608270374475
+Private higher educational institution Pylyp Orlyk International Classical University;2012;www.mku.edu.ua;46.9714764;32.01839468478296
