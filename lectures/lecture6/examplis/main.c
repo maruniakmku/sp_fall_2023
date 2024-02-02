@@ -6,6 +6,7 @@
 #include <signal.h>
 #include <stdlib.h>
 #include <time.h>
+#include <stdio.h>
 
 #include <curses.h>
 
@@ -20,6 +21,9 @@
 #define ES_FIGURE_HEIGHT 4
 #define ES_NFIGURES 16           /* total number of all rotated forms */
 #define ES_NROTATIONS 4          /* number of rotations for each figure */
+
+#define ES_HIGHSCORES_PATH "highscores.bin"
+#define ES_SCORES_TO_KEEP 5
 
 typedef unsigned char es_rock_t;
 
@@ -69,6 +73,7 @@ struct es_game {
     struct es_field field;
     unsigned int score;
     int game_over_line_index;
+    unsigned int highscores[ES_SCORES_TO_KEEP];
 };
 
 enum es_input {
@@ -394,12 +399,31 @@ void es_game_init(struct es_game* game, clock_t current_time)
     game->score = 0;
     game->state = ES_IN_PROGRESS;
     game->game_over_line_index = ES_FIGURE_HEIGHT - 1;
+
+    for (int i = 0; i < ES_SCORES_TO_KEEP; ++i)
+        game->highscores[i] = 0;
 }
 
 int es_score_increment(int nlines)
 {
     assert(nlines > 0);
     return (1 << (nlines - 1)) * ES_LINE_WIDTH;
+}
+
+void es_highscores_update(struct es_game *game)
+{
+    int insert_pos = -1;
+    for (int i = 0; i < ES_SCORES_TO_KEEP; ++i) {
+        if (game->score > game->highscores[i]) {
+            insert_pos = i;
+            break;
+        }
+    }
+    if (insert_pos == -1)
+        return;
+    for (int j = ES_SCORES_TO_KEEP - 1; j > insert_pos; --j)
+        game->highscores[j] = game->highscores[j - 1];
+    game->highscores[insert_pos] = game->score;
 }
 
 void es_game_update(struct es_game* game,
@@ -432,8 +456,10 @@ void es_game_update(struct es_game* game,
     es_moving_figure_init(&game->moving_figure, current_time);
 
     if (!es_field_line_is_empty(&game->field,
-        game->game_over_line_index))
+        game->game_over_line_index)) {
         game->state = ES_GAME_OVER;
+        es_highscores_update(game);
+    }
 }
 
 void io_cleanup(void)
@@ -519,7 +545,13 @@ void io_draw(struct es_game* game)
 
     /* State */
     if (game->state == ES_GAME_OVER)
-        mvprintw(12, ES_LINE_WIDTH + 10, "Game over");
+        mvprintw(2, ES_LINE_WIDTH + 10, "Game over");
+
+    /* Highscores */
+    mvprintw(11, ES_LINE_WIDTH + 10, "Highscores:");
+    for (int i = 0; i < ES_SCORES_TO_KEEP; ++i) {
+        mvprintw(12 + i, ES_LINE_WIDTH + 10, "%d: %d", i + 1, game->highscores[i]);
+    }
 
     /* Instructions */
     mvprintw(4, ES_LINE_WIDTH + 10, "How to play:");
@@ -533,14 +565,47 @@ void io_draw(struct es_game* game)
     refresh();
 }
 
+void io_load_highscores(
+    char *file_path, unsigned int* highscores, size_t count)
+{
+    FILE* f = fopen(file_path, "rb");
+    if (f == NULL)
+        return;
+    size_t result = fread(
+        highscores, sizeof(highscores[0]), count, f);
+    assert(result == count);
+    fclose(f);
+}
+
+void io_save_highscores(
+    char* file_path, unsigned int* highscores, size_t count)
+{
+    FILE* f = fopen(file_path, "wb");
+    assert(f != NULL);
+    size_t result = fwrite(
+        highscores, sizeof(highscores[0]), count, f);
+    assert(result == count);
+    fclose(f);
+}
+
 int main()
 {
     io_init();
     struct es_game game;
     es_game_init(&game, clock());
+    io_load_highscores(
+        ES_HIGHSCORES_PATH,
+        &(game.highscores),
+        ES_SCORES_TO_KEEP
+    );
     while (game.state != ES_GAME_EXIT) {
         es_game_update(&game, io_readkey(), clock());
         io_draw(&game);
     }
+    io_save_highscores(
+        ES_HIGHSCORES_PATH,
+        &(game.highscores),
+        ES_SCORES_TO_KEEP
+    );
     return 0;
 }
