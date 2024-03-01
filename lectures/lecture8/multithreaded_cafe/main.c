@@ -18,11 +18,16 @@ struct order {
 	enum beverage beverage;
 };
 
+enum order_queue_status {
+	order_queue_empty,
+	order_queue_busy,
+	order_queue_full,
+};
+
 struct order_queue {
 	int head;
 	int tail;
-	int empty;
-	int full;
+	enum order_queue_status status;
 	struct order items[100];
 };
 
@@ -31,30 +36,31 @@ struct order_queue order_queue_new()
 	return (struct order_queue) {
 		.head = 0,
 		.tail = 0,
-		.empty = 1,
-		.full = 0,
+		.status = order_queue_empty,
 		.items = { 0 },
 	};
 }
 
 void order_queue_push(struct order_queue* q, struct order o)
 {
-	assert(!q->full);
+	assert(q->status != order_queue_full);
 	q->items[q->head] = o;
 	q->head = (q->head + 1) % (sizeof(q->items) / sizeof(q->items[0]));
-	q->empty = 0;
 	if (q->head == q->tail)
-		q->full = 1;
+		q->status = order_queue_full;
+	else
+		q->status = order_queue_busy;
 }
 
 struct order order_queue_pop(struct order_queue* q)
 {
-	assert(!q->empty);
+	assert(q->status != order_queue_empty);
 	struct order o = q->items[q->tail];
 	q->tail = (q->tail + 1) % (sizeof(q->items) / sizeof(q->items[0]));
-	q->full = 0;
 	if (q->head == q->tail)
-		q->empty = 1;
+		q->status = order_queue_empty;
+	else
+		q->status = order_queue_busy;
 	return o;
 }
 
@@ -94,9 +100,9 @@ int cashier_thread_func(void* arg)
 	struct cashier_thread_params* p = arg;
 	printf("Cashier %s arrived.\n", p->name);
 	while (*(p->cafe_opened)) {
-		if (p->in_queue->empty) {
+		if (p->in_queue->status == order_queue_empty) {
 			printf("Cashier %s has nothing to do.\n", p->name);
-			while (p->in_queue->empty && *(p->cafe_opened))
+			while (p->in_queue->status == order_queue_empty && *(p->cafe_opened))
 				do_work(1);
 		}
 		else {
@@ -120,9 +126,9 @@ int barista_thread_func(void* arg)
 	struct barista_thread_params* p = arg;
 	printf("Barista %s arrived.\n", p->name);
 	while (*(p->cafe_opened)) {
-		if (p->in_queue->empty) {
+		if (p->in_queue->status == order_queue_empty) {
 			printf("Barista %s has nothing to do.\n", p->name);
-			while (p->in_queue->empty && *(p->cafe_opened))
+			while (p->in_queue->status == order_queue_empty && *(p->cafe_opened))
 				do_work(1);
 		}
 		else {
