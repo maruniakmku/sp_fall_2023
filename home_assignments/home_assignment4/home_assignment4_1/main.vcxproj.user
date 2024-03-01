@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LocalDebuggerCommandArguments>"the" books\pg100.txt books\pg11.txt books\pg1259.txt books\pg1342.txt books\pg145.txt books\pg1513.txt books\pg16389.txt books\pg174.txt books\pg2160.txt books\pg2542.txt books\pg2641.txt books\pg2701.txt books\pg37106.txt books\pg394.txt books\pg4085.txt books\pg64317.txt books\pg6761.txt books\pg67979.txt books\pg84.txt books\pg844.txt</LocalDebuggerCommandArguments>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LocalDebuggerCommandArguments>"the" books\pg100.txt books\pg11.txt books\pg1259.txt books\pg1342.txt books\pg145.txt books\pg1513.txt books\pg16389.txt books\pg174.txt books\pg2160.txt books\pg2542.txt books\pg2641.txt books\pg2701.txt books\pg37106.txt books\pg394.txt books\pg4085.txt books\pg64317.txt books\pg6761.txt books\pg67979.txt books\pg84.txt books\pg844.txt</LocalDebuggerCommandArguments>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LocalDebuggerCommandArguments>"the" books\pg100.txt books\pg11.txt books\pg1259.txt books\pg1342.txt books\pg145.txt books\pg1513.txt books\pg16389.txt books\pg174.txt books\pg2160.txt books\pg2542.txt books\pg2641.txt books\pg2701.txt books\pg37106.txt books\pg394.txt books\pg4085.txt books\pg64317.txt books\pg6761.txt books\pg67979.txt books\pg84.txt books\pg844.txt</LocalDebuggerCommandArguments>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LocalDebuggerCommandArguments>"the" books\pg100.txt books\pg11.txt books\pg1259.txt books\pg1342.txt books\pg145.txt books\pg1513.txt books\pg16389.txt books\pg174.txt books\pg2160.txt books\pg2542.txt books\pg2641.txt books\pg2701.txt books\pg37106.txt books\pg394.txt books\pg4085.txt books\pg64317.txt books\pg6761.txt books\pg67979.txt books\pg84.txt books\pg844.txt</LocalDebuggerCommandArguments>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+</Project>
