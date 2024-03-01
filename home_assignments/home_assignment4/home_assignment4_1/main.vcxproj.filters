@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="tests">
-      <UniqueIdentifier>{33da4c50-30d4-49a0-9747-640506f0c40c}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c">
@@ -23,27 +20,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="test.cmd" />
     <None Include="problem_statement.md" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="tests\input1.txt">
-      <Filter>tests</Filter>
-    </Text>
-    <Text Include="tests\output1.txt">
-      <Filter>tests</Filter>
-    </Text>
-    <Text Include="tests\input2.txt">
-      <Filter>tests</Filter>
-    </Text>
-    <Text Include="tests\output2.txt">
-      <Filter>tests</Filter>
-    </Text>
-    <Text Include="tests\input3.txt">
-      <Filter>tests</Filter>
-    </Text>
-    <Text Include="tests\output3.txt">
-      <Filter>tests</Filter>
-    </Text>
   </ItemGroup>
 </Project>
