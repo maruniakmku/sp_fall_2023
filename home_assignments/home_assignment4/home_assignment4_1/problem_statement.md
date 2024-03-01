@@ -41,7 +41,7 @@
 Приклад виклику програми:
 
 ```
-main.exe "To be, or not to be" books\pg11.txt books\pg100.txt
+x64\Debug\main.exe "To be, or not to be" books\pg11.txt books\pg100.txt
 ```
 
 Шукає фрагмент `To be, or not to be` в двох текстових файлах за шляхами
@@ -81,7 +81,7 @@ books\pg100.txt:1
 #### Ввід
 
 ```
-main.exe "the" books\pg100.txt books\pg11.txt books\pg1259.txt books\pg1342.txt
+x64\Debug\main.exe "the" books\pg100.txt books\pg11.txt books\pg1259.txt books\pg1342.txt
 ```
 
 #### Вивід
@@ -98,7 +98,7 @@ books\pg1342.txt:5687
 #### Ввід
 
 ```
-"To be, or not to be" books\pg100.txt books\pg11.txt books\pg1259.txt books\pg1342.txt
+x64\Debug\main.exe "To be, or not to be" books\pg100.txt books\pg11.txt books\pg1259.txt books\pg1342.txt
 ```
 
 #### Вивід
