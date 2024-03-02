@@ -92,7 +92,7 @@ const char* beverage_str(enum beverage b)
 	case beverage_tea:
 		return BEVERAGE_STR_TEA;
 	}
-	assert(1);
+	assert(0);
 }
 
 int cashier_thread_func(void* arg)
@@ -204,7 +204,7 @@ int main()
 				o.beverage = beverage_tea;
 				break;
 			default:
-				assert(1);
+				assert(0);
 			}
 			int r4 = scanf("%20s", o.customer_name);
 			assert(r4 == 1);
