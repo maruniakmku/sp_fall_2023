@@ -7,7 +7,7 @@ enum beverage {
 	beverage_espresso,
 	beverage_cappuccino,
 	beverage_tea,
-        beverage_cocoa,
+	beverage_cocoa,
 };
 
 struct order {
@@ -88,10 +88,10 @@ const char* beverage_str(enum beverage b)
 		return "cappuccino";
 	case beverage_tea:
 		return "tea";
-        case beverage_cocoa:
-                return "cocoa";
+	case beverage_cocoa:
+		return "cocoa";
 	}
-        assert(0);
+	assert(0);
 }
 
 int cashier_thread_func(void* arg)
@@ -107,10 +107,10 @@ int cashier_thread_func(void* arg)
 		else {
 			struct order o = order_queue_pop(p->in_queue);
 			printf("Cashier %s is serving %s with %s.\n",
-				p->name,
-				o.customer_name,
-				beverage_str(o.beverage)
-			);
+					p->name,
+					o.customer_name,
+					beverage_str(o.beverage)
+			      );
 			do_work(5);
 			order_queue_push(p->out_queue, o);
 			printf("Cashier %s has completed the order.\n", p->name);
@@ -133,25 +133,25 @@ int barista_thread_func(void* arg)
 		else {
 			struct order o = order_queue_pop(p->in_queue);
 			printf("Barista %s is serving %s with %s.\n",
-				p->name,
-				o.customer_name,
-				beverage_str(o.beverage)
-			);
+					p->name,
+					o.customer_name,
+					beverage_str(o.beverage)
+			      );
 			switch (o.beverage) {
 			case beverage_espresso:
 				do_work(3);
-                                break;
+				break;
 			case beverage_cappuccino:
 				do_work(5);
-                                break;
+				break;
 			case beverage_tea:
 				do_work(2);
-                                break;
-                        case beverage_cocoa:
-                                do_work(4);
-                                break;
-                        default:
-                                assert(0);
+				break;
+			case beverage_cocoa:
+				do_work(4);
+				break;
+			default:
+				assert(0);
 			}
 			printf("Barista %s has completed the order.\n", p->name);
 		}
@@ -160,45 +160,14 @@ int barista_thread_func(void* arg)
 	return 0;
 }
 
-int main()
+void input_loop(struct order_queue* out_queue, int* cafe_opened)
 {
-	printf("Cafe opened.\n");
-	printf("Type <beverage> <customer_name> to place a new order.\n");
-	printf("  Where <beverage> is:\n");
-	printf("     e - espresso\n");
-	printf("     c - cappuccino\n");
-	printf("     t - tea\n");
-	printf("     o - cocoa\n");
-        printf("Type s for a stress test of 10 orders.\n");
-	printf("Type q to exit.\n");
-
-	int cafe_opened = 1;
-	struct order_queue cashier_queue = order_queue_new();
-	struct order_queue barista_queue = order_queue_new();
-        struct cashier_thread_params cashier_thread_params = {
-		.name = "Carol",
-		.cafe_opened = &cafe_opened,
-                .in_queue = &cashier_queue,
-                .out_queue = &barista_queue,
-        };
-	struct barista_thread_params barista_thread_params = {
-		.name = "Bob",
-		.cafe_opened = &cafe_opened,
-                    .in_queue = &barista_queue,
-	};
-	thrd_t cashier_thread;
-	thrd_t barista_thread;
-
-	int r1 = thrd_create(&cashier_thread, cashier_thread_func, &cashier_thread_params);
-	assert(r1 == thrd_success);
-	int r2 = thrd_create(&barista_thread, barista_thread_func, &barista_thread_params);
-            assert(r2 == thrd_success);
-	while (cafe_opened) {
+	while (*cafe_opened) {
 		char command;
 		int r3 = scanf("%c", &command);
 		assert(r3 == 1);
 		if (command == 'q') {
-			cafe_opened = 0;
+			*cafe_opened = 0;
 		}
 		else if (command == 'e' || command == 'c' || command == 't'|| command == 'o') {
 			struct order o;
@@ -220,18 +189,18 @@ int main()
 			}
 			int r4 = scanf("%20s", o.customer_name);
 			assert(r4 == 1);
-			order_queue_push(&cashier_queue, o);
+			order_queue_push(out_queue, o);
 			printf("Customer %s asked for %s.\n", o.customer_name, beverage_str(o.beverage));
 		}
-                else if (command == 's') {
-                    for (int i = 0; i < 10; ++i) {
-                        struct order o;
-                        o.beverage = beverage_cocoa;
-                        sprintf(o.customer_name, "Kid #%d", i);
-                        order_queue_push(&cashier_queue, o);
-			printf("Customer %s asked for %s.\n", o.customer_name, beverage_str(o.beverage));
-                    }
-                }
+		else if (command == 's') {
+			for (int i = 0; i < 10; ++i) {
+				struct order o;
+				o.beverage = beverage_cocoa;
+				sprintf(o.customer_name, "Kid #%d", i);
+				order_queue_push(out_queue, o);
+				printf("Customer %s asked for %s.\n", o.customer_name, beverage_str(o.beverage));
+			}
+		}
 		else {
 			printf("Unknown command %c.\n", command);
 		}
@@ -239,9 +208,47 @@ int main()
 			;
 		}
 	}
+}
+
+int main()
+{
+	printf("Cafe opened.\n");
+	printf("Type <beverage> <customer_name> to place a new order.\n");
+	printf("  Where <beverage> is:\n");
+	printf("     e - espresso\n");
+	printf("     c - cappuccino\n");
+	printf("     t - tea\n");
+	printf("     o - cocoa\n");
+	printf("Type s for a stress test of 10 orders.\n");
+	printf("Type q to exit.\n");
+
+	int cafe_opened = 1;
+	struct order_queue cashier_queue = order_queue_new();
+	struct order_queue barista_queue = order_queue_new();
+	struct cashier_thread_params cashier_thread_params = {
+		.name = "Carol",
+		.cafe_opened = &cafe_opened,
+		.in_queue = &cashier_queue,
+		.out_queue = &barista_queue,
+	};
+	struct barista_thread_params barista_thread_params = {
+		.name = "Bob",
+		.cafe_opened = &cafe_opened,
+		.in_queue = &barista_queue,
+	};
+	thrd_t cashier_thread;
+	thrd_t barista_thread;
+
+	int r1 = thrd_create(&cashier_thread, cashier_thread_func, &cashier_thread_params);
+	assert(r1 == thrd_success);
+	int r2 = thrd_create(&barista_thread, barista_thread_func, &barista_thread_params);
+	assert(r2 == thrd_success);
+
+	input_loop(&cashier_queue, &cafe_opened);
+
 	printf("Cafe is closing.\n");
-        thrd_join(cashier_thread, NULL);
-        thrd_join(barista_thread, NULL);
+	thrd_join(cashier_thread, NULL);
+	thrd_join(barista_thread, NULL);
 	printf("Cafe closed.\n");
 	return 0;
 }
