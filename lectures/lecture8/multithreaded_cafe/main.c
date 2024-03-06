@@ -7,13 +7,8 @@ enum beverage {
 	beverage_espresso,
 	beverage_cappuccino,
 	beverage_tea,
-        beverage_cacao,
+        beverage_cocoa,
 };
-
-#define BEVERAGE_STR_ESPRESSO "espresso"
-#define BEVERAGE_STR_CAPPUCCINO "cappuccino"
-#define BEVERAGE_STR_TEA "tea"
-#define BEVERAGE_STR_CACAO "cacao"
 
 struct order {
 	char customer_name[20];
@@ -88,13 +83,13 @@ const char* beverage_str(enum beverage b)
 {
 	switch (b) {
 	case beverage_espresso:
-		return BEVERAGE_STR_ESPRESSO;
+		return "espresso";
 	case beverage_cappuccino:
-		return BEVERAGE_STR_CAPPUCCINO;
+		return "cappuccino";
 	case beverage_tea:
-		return BEVERAGE_STR_TEA;
-        case beverage_cacao:
-                return BEVERAGE_STR_CACAO;
+		return "tea";
+        case beverage_cocoa:
+                return "cocoa";
 	}
         assert(0);
 }
@@ -152,7 +147,7 @@ int barista_thread_func(void* arg)
 			case beverage_tea:
 				do_work(2);
                                 break;
-                        case beverage_cacao:
+                        case beverage_cocoa:
                                 do_work(4);
                                 break;
                         default:
@@ -173,7 +168,7 @@ int main()
 	printf("     e - espresso\n");
 	printf("     c - cappuccino\n");
 	printf("     t - tea\n");
-	printf("     o - cacao\n");
+	printf("     o - cocoa\n");
         printf("Type s for a stress test of 10 orders.\n");
 	printf("Type q to exit.\n");
 
@@ -218,7 +213,7 @@ int main()
 				o.beverage = beverage_tea;
 				break;
 			case 'o':
-				o.beverage = beverage_cacao;
+				o.beverage = beverage_cocoa;
 				break;
 			default:
 				assert(0);
@@ -231,7 +226,7 @@ int main()
                 else if (command == 's') {
                     for (int i = 0; i < 10; ++i) {
                         struct order o;
-                        o.beverage = beverage_cacao;
+                        o.beverage = beverage_cocoa;
                         sprintf(o.customer_name, "Kid #%d", i);
                         order_queue_push(&cashier_queue, o);
 			printf("Customer %s asked for %s.\n", o.customer_name, beverage_str(o.beverage));
