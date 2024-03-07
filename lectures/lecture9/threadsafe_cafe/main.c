@@ -26,20 +26,30 @@ struct order_queue {
 	int tail;
 	enum order_queue_status status;
 	struct order items[100];
+	mtx_t mutex;
 };
 
 struct order_queue order_queue_new()
 {
-	return (struct order_queue) {
+	struct order_queue result = {
 		.head = 0,
 		.tail = 0,
 		.status = order_queue_empty,
 		.items = {},
 	};
+	int mtx_init_result = mtx_init(&result.mutex, mtx_plain);
+	assert(mtx_init_result == thrd_success);
+	return result;
+}
+
+void order_queue_destroy(struct order_queue* q)
+{
+	mtx_destroy(&q->mutex);
 }
 
 void order_queue_push(struct order_queue* q, struct order o)
 {
+	mtx_lock(&q->mutex);
 	assert(q->status != order_queue_full);
 	q->items[q->head] = o;
 	q->head = (q->head + 1) % (sizeof(q->items) / sizeof(q->items[0]));
@@ -47,10 +57,12 @@ void order_queue_push(struct order_queue* q, struct order o)
 		q->status = order_queue_full;
 	else
 		q->status = order_queue_busy;
+	mtx_unlock(&q->mutex);
 }
 
 struct order order_queue_pop(struct order_queue* q)
 {
+	mtx_lock(&q->mutex);
 	assert(q->status != order_queue_empty);
 	struct order o = q->items[q->tail];
 	q->tail = (q->tail + 1) % (sizeof(q->items) / sizeof(q->items[0]));
@@ -58,6 +70,7 @@ struct order order_queue_pop(struct order_queue* q)
 		q->status = order_queue_empty;
 	else
 		q->status = order_queue_busy;
+	mtx_unlock(&q->mutex);
 	return o;
 }
 
@@ -264,13 +277,26 @@ int main()
 			.in_queue = &cashier_queue,
 			.out_queue = &barista_queue,
 		};
+	struct cashier_thread_params cashier_chris_thread_params = {
+			.name = "Chris",
+			.cafe_opened = &cafe_opened,
+			.in_queue = &cashier_queue,
+			.out_queue = &barista_queue,
+		};
 	struct barista_thread_params barista_bob_thread_params = {
 			.name = "Bob",
 			.cafe_opened = &cafe_opened,
 			.in_queue = &barista_queue,
 		};
+	struct barista_thread_params barista_bill_thread_params = {
+			.name = "Bill",
+			.cafe_opened = &cafe_opened,
+			.in_queue = &barista_queue,
+		};
 	thrd_t cashier_carol_thread;
+	thrd_t cashier_chris_thread;
 	thrd_t barista_bob_thread;
+	thrd_t barista_bill_thread;
 	int thrd_create_result;
 
 	thrd_create_result = thrd_create(
@@ -281,9 +307,23 @@ int main()
 	assert(thrd_create_result == thrd_success);
 
 	thrd_create_result = thrd_create(
+			&cashier_chris_thread,
+			cashier_thread_func,
+			&cashier_chris_thread_params
+		);
+	assert(thrd_create_result == thrd_success);
+
+	thrd_create_result = thrd_create(
 			&barista_bob_thread,
 			barista_thread_func,
 			&barista_bob_thread_params
+		);
+	assert(thrd_create_result == thrd_success);
+
+	thrd_create_result = thrd_create(
+			&barista_bill_thread,
+			barista_thread_func,
+			&barista_bill_thread_params
 		);
 	assert(thrd_create_result == thrd_success);
 
@@ -292,7 +332,12 @@ int main()
 	printf("Cafe is closing.\n");
 
 	thrd_join(cashier_carol_thread, NULL);
+	thrd_join(cashier_chris_thread, NULL);
 	thrd_join(barista_bob_thread, NULL);
+	thrd_join(barista_bill_thread, NULL);
+
+	order_queue_destroy(&cashier_queue);
+	order_queue_destroy(&barista_queue);
 
 	printf("Cafe closed.\n");
 	return 0;
