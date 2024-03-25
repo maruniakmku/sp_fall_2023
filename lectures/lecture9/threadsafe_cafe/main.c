@@ -16,9 +16,10 @@ struct order {
 };
 
 enum order_queue_status {
-	order_queue_empty,
-	order_queue_busy,
-	order_queue_full,
+	order_queue_status_empty,
+	order_queue_status_busy,
+	order_queue_status_full,
+	order_queue_status_closed,
 };
 
 struct order_queue {
@@ -26,52 +27,127 @@ struct order_queue {
 	int tail;
 	enum order_queue_status status;
 	struct order items[100];
+	int capacity;
 	mtx_t mutex;
+	cnd_t changed;
+};
+
+enum order_queue_result {
+	order_queue_success,
+	order_queue_timedout,
+	order_queue_closed,
 };
 
 struct order_queue order_queue_new()
 {
-	struct order_queue result = {
+	struct order_queue q = {
 		.head = 0,
 		.tail = 0,
-		.status = order_queue_empty,
+		.status = order_queue_status_empty,
 		.items = {},
+		.capacity = sizeof(q.items) / sizeof(q.items[0]),
 	};
-	int mtx_init_result = mtx_init(&result.mutex, mtx_plain);
+
+	int mtx_init_result = mtx_init(&q.mutex, mtx_recursive);
 	assert(mtx_init_result == thrd_success);
-	return result;
+
+	int cnd_init_result = cnd_init(&q.changed);
+	assert(cnd_init_result == thrd_success);
+
+	return q;
+}
+
+void order_queue_close(struct order_queue* q)
+{
+	mtx_lock(&q->mutex);
+	q->status = order_queue_status_closed;
+	cnd_signal(&q->changed);
+	mtx_unlock(&q->mutex);
 }
 
 void order_queue_destroy(struct order_queue* q)
 {
+	cnd_destroy(&q->changed);
 	mtx_destroy(&q->mutex);
 }
 
-void order_queue_push(struct order_queue* q, struct order o)
+enum order_queue_result order_queue_push(
+	struct order_queue* q,
+	struct order* o)
 {
+	enum order_queue_result result;
 	mtx_lock(&q->mutex);
-	assert(q->status != order_queue_full);
-	q->items[q->head] = o;
-	q->head = (q->head + 1) % (sizeof(q->items) / sizeof(q->items[0]));
-	if (q->head == q->tail)
-		q->status = order_queue_full;
-	else
-		q->status = order_queue_busy;
+	switch (q->status) {
+		case order_queue_status_closed:
+			result = order_queue_closed;
+			break;
+		case order_queue_status_empty:
+		case order_queue_status_busy:
+			q->items[q->head] = *o;
+			q->head = (q->head + 1) % q->capacity;
+			if (q->head == q->tail)
+				q->status = order_queue_status_full;
+			else
+				q->status = order_queue_status_busy;
+			cnd_signal(&q->changed);
+			result = order_queue_success;
+			break;
+		case order_queue_status_full:
+			assert(0);
+		default:
+			assert(0);
+	}
 	mtx_unlock(&q->mutex);
+	return result;
 }
 
-struct order order_queue_pop(struct order_queue* q)
+enum order_queue_result order_queue_trypop(
+	struct order_queue* q,
+	struct order* order,
+	time_t seconds)
 {
+	enum order_queue_result result;
 	mtx_lock(&q->mutex);
-	assert(q->status != order_queue_empty);
-	struct order o = q->items[q->tail];
-	q->tail = (q->tail + 1) % (sizeof(q->items) / sizeof(q->items[0]));
-	if (q->head == q->tail)
-		q->status = order_queue_empty;
-	else
-		q->status = order_queue_busy;
+
+	switch (q->status) {
+	case order_queue_status_closed:
+		result = order_queue_closed;
+		break;
+	case order_queue_status_empty:
+		if (seconds > 0) {
+			struct timespec ts;
+			int timespec_get_result = timespec_get(
+					&ts,
+					TIME_UTC
+				);
+			assert(timespec_get_result == TIME_UTC);
+			ts.tv_sec += seconds;
+
+			cnd_timedwait(
+				&q->changed,
+				&q->mutex,
+				&ts
+			);
+			result = order_queue_trypop(q, order, 0);
+		} else {
+			result = order_queue_timedout;
+		}
+		break;
+	case order_queue_status_busy:
+	case order_queue_status_full:
+		*order = q->items[q->tail];
+		q->tail = (q->tail + 1) % q->capacity;
+		if (q->head == q->tail)
+			q->status = order_queue_status_empty;
+		else
+			q->status = order_queue_status_busy;
+		result = order_queue_success;
+		break;
+	default:
+		assert(0);
+	}
 	mtx_unlock(&q->mutex);
-	return o;
+	return result;
 }
 
 const char* beverage_str(enum beverage b)
@@ -98,25 +174,23 @@ struct cashier_thread_params {
 	const char* name;
 	struct order_queue* in_queue;
 	struct order_queue* out_queue;
-	const int* const cafe_opened;
 };
 
 int cashier_thread_func(void* arg)
 {
 	struct cashier_thread_params* p = arg;
 	printf("Cashier %s arrived.\n", p->name);
-	while (*(p->cafe_opened)) {
-		if (p->in_queue->status == order_queue_empty) {
-			printf("Cashier %s has nothing to do.\n", p->name);
-			while (
-				p->in_queue->status == order_queue_empty
-				&& *(p->cafe_opened)
-			) {
-				do_work(1);
-			}
-		}
-		else {
-			struct order o = order_queue_pop(p->in_queue);
+	int queue_open = 1;
+	while (queue_open) {
+		struct order o;
+		enum order_queue_result pop_result = order_queue_trypop(
+				p->in_queue,
+				&o,
+				5
+			);
+
+		switch (pop_result) {
+		case order_queue_success:
 			printf(
 				"Cashier %s is serving %s with %s.\n",
 				p->name,
@@ -124,11 +198,27 @@ int cashier_thread_func(void* arg)
 				beverage_str(o.beverage)
 			);
 			do_work(5);
-			order_queue_push(p->out_queue, o);
+			enum order_queue_result push_result = order_queue_push(
+					p->out_queue,
+					&o
+				);
+			if (push_result == order_queue_closed) {
+				queue_open = 0;
+				break;
+			}
 			printf(
 				"Cashier %s has completed the order.\n",
 				p->name
 			);
+			break;
+		case order_queue_timedout:
+			printf("Cashier %s has nothing to do.\n", p->name);
+			break;
+		case order_queue_closed:
+			queue_open = 0;
+			break;
+		default:
+			assert(0);
 		}
 	}
 	printf("Cashier %s went home.\n", p->name);
@@ -138,25 +228,22 @@ int cashier_thread_func(void* arg)
 struct barista_thread_params {
 	const char* name;
 	struct order_queue* in_queue;
-	const int* const cafe_opened;
 };
 
 int barista_thread_func(void* arg)
 {
 	struct barista_thread_params* p = arg;
 	printf("Barista %s arrived.\n", p->name);
-	while (*(p->cafe_opened)) {
-		if (p->in_queue->status == order_queue_empty) {
-			printf("Barista %s has nothing to do.\n", p->name);
-			while (
-				p->in_queue->status == order_queue_empty
-				&& *(p->cafe_opened)
-			) {
-				do_work(1);
-			}
-		}
-		else {
-			struct order o = order_queue_pop(p->in_queue);
+	int queue_open = 1;
+	while (queue_open) {
+		struct order o;
+		enum order_queue_result pop_result = order_queue_trypop(
+				p->in_queue,
+				&o,
+				5
+			);
+		switch (pop_result) {
+		case order_queue_success:
 			printf(
 				"Barista %s is serving %s with %s.\n",
 				p->name,
@@ -183,20 +270,41 @@ int barista_thread_func(void* arg)
 				"Barista %s has completed the order.\n",
 				p->name
 			);
+			break;
+		case order_queue_timedout:
+			printf("Barista %s has nothing to do.\n", p->name);
+			break;
+		case order_queue_closed:
+			queue_open = 0;
+			break;
+		default:
+			assert(0);
 		}
 	}
 	printf("Barista %s went home.\n", p->name);
 	return 0;
 }
 
-void input_loop(struct order_queue* out_queue, int* cafe_opened)
+void push_customer_order(struct order_queue* q, struct order* o) {
+	enum order_queue_result push_result;
+	push_result = order_queue_push(q, o);
+	assert(push_result == order_queue_success);
+	printf(
+		"Customer %s asked for %s.\n",
+		o->customer_name,
+		beverage_str(o->beverage)
+	);
+}
+
+void input_loop(struct order_queue* out_queue)
 {
-	while (*cafe_opened) {
+	int cafe_opened = 1;
+	while (cafe_opened) {
 		char command;
 		int scanf_command_result = scanf("%c", &command);
 		assert(scanf_command_result == 1);
 		if (command == 'q') {
-			*cafe_opened = 0;
+			cafe_opened = 0;
 		}
 		else if (
 			command == 'e'
@@ -226,24 +334,14 @@ void input_loop(struct order_queue* out_queue, int* cafe_opened)
 					o.customer_name
 				);
 			assert(scanf_name_result == 1);
-			order_queue_push(out_queue, o);
-			printf(
-				"Customer %s asked for %s.\n",
-				o.customer_name,
-				beverage_str(o.beverage)
-			);
+			push_customer_order(out_queue, &o);
 		}
 		else if (command == 's') {
 			for (int i = 0; i < 10; ++i) {
 				struct order o;
 				o.beverage = beverage_cocoa;
 				sprintf(o.customer_name, "Kid #%d", i);
-				order_queue_push(out_queue, o);
-				printf(
-					"Customer %s asked for %s.\n",
-					o.customer_name,
-					beverage_str(o.beverage)
-				);
+				push_customer_order(out_queue, &o);
 			}
 		}
 		else {
@@ -267,30 +365,25 @@ int main()
 	printf("Type s for a stress test with 10 orders.\n");
 	printf("Type q to exit.\n");
 
-	int cafe_opened = 1;
 	struct order_queue cashier_queue = order_queue_new();
 	struct order_queue barista_queue = order_queue_new();
 
 	struct cashier_thread_params cashier_carol_thread_params = {
 			.name = "Carol",
-			.cafe_opened = &cafe_opened,
 			.in_queue = &cashier_queue,
 			.out_queue = &barista_queue,
 		};
 	struct cashier_thread_params cashier_chris_thread_params = {
 			.name = "Chris",
-			.cafe_opened = &cafe_opened,
 			.in_queue = &cashier_queue,
 			.out_queue = &barista_queue,
 		};
 	struct barista_thread_params barista_bob_thread_params = {
 			.name = "Bob",
-			.cafe_opened = &cafe_opened,
 			.in_queue = &barista_queue,
 		};
 	struct barista_thread_params barista_bill_thread_params = {
 			.name = "Bill",
-			.cafe_opened = &cafe_opened,
 			.in_queue = &barista_queue,
 		};
 	thrd_t cashier_carol_thread;
@@ -327,9 +420,12 @@ int main()
 		);
 	assert(thrd_create_result == thrd_success);
 
-	input_loop(&cashier_queue, &cafe_opened);
+	input_loop(&cashier_queue);
 
 	printf("Cafe is closing.\n");
+
+	order_queue_close(&cashier_queue);
+	order_queue_close(&barista_queue);
 
 	thrd_join(cashier_carol_thread, NULL);
 	thrd_join(cashier_chris_thread, NULL);
