@@ -11,7 +11,7 @@ int thread_func1(void *params)
 	int a = account_a;
 	int b = account_b;
 	printf(
-		"%s: Transfering 200$ from account A to account B\n",
+		"%s: Transfering 200$ from account A to account B...\n",
 		thread_name
 	);
 	a -= 200;
@@ -28,7 +28,7 @@ int thread_func2(void *params)
 	int a = account_a;
 	int b = account_b;
 	printf(
-		"%s: Transfering 200$ from account B to account A\n",
+		"%s: Transfering 200$ from account B to account A...\n",
 		thread_name
 	);
 	a += 200;
