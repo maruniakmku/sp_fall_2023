@@ -33,7 +33,7 @@ void sleep()
 
 int philosopher_thread(void* param)
 {
-	int philosopher = param;
+	int philosopher = (int)param;
 	int fork1 = left_fork(philosopher);
 	int fork2 = right_fork(philosopher);
 	int mtx_result;
@@ -60,6 +60,7 @@ int philosopher_thread(void* param)
 		assert(mtx_result == thrd_success);
 		printf("Philosoper %d put fork %d.\n", philosopher, fork1);
 	}
+	return 0;
 }
 
 int main()
@@ -69,7 +70,7 @@ int main()
 		assert(r == thrd_success);
 	}
 	for (int i = 0; i < NPHILOSOPHERS; ++i) {
-		int r = thrd_create(&threads[i], philosopher_thread, i);
+		int r = thrd_create(&threads[i], philosopher_thread, (void *)i);
 		assert(r == thrd_success);
 	}
 	printf("Philosophers ready. Press <ENTER> to exit.\n");
