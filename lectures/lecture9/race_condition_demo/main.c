@@ -5,9 +5,12 @@
 int account_a = 1000;
 int account_b = 1000;
 
+//mtx_t transfer_lock;
+
 int thread_func1(void *params)
 {
 	const char *thread_name = params;
+	//mtx_lock(&transfer_lock);
 	int a = account_a;
 	int b = account_b;
 	printf(
@@ -19,12 +22,14 @@ int thread_func1(void *params)
 	account_a = a;
 	account_b = b;
 	printf("%s: Done\n", thread_name);
+	//mtx_unlock(&transfer_lock);
 	return 0;
 }
 
 int thread_func2(void *params)
 {
 	const char *thread_name = params;
+	//mtx_lock(&transfer_lock);
 	int a = account_a;
 	int b = account_b;
 	printf(
@@ -36,22 +41,26 @@ int thread_func2(void *params)
 	account_a = a;
 	account_b = b;
 	printf("%s: Done\n", thread_name);
+	//mtx_unlock(&transfer_lock);
 	return 0;
 }
 
 int main()
 {
 	thrd_t t1, t2;
-	int thrd_create_result;
+	int thrd_result;
+
+	//thrd_result = mtx_init(&transfer_lock, mtx_plain);
+	//assert(thrd_result == thrd_success);
 
 	printf("Account A balance: %d\n", account_a);
 	printf("Account B balance: %d\n", account_b);
 
-	thrd_create_result = thrd_create(&t1, thread_func1, "Thread 1");
-	assert(thrd_create_result == thrd_success);
+	thrd_result = thrd_create(&t1, thread_func1, "Thread 1");
+	assert(thrd_result == thrd_success);
 
-	thrd_create_result = thrd_create(&t2, thread_func2, "Thread 2");
-	assert(thrd_create_result == thrd_success);
+	thrd_result = thrd_create(&t2, thread_func2, "Thread 2");
+	assert(thrd_result == thrd_success);
 
 	thrd_join(t1, NULL);
 	thrd_join(t2, NULL);
@@ -59,6 +68,7 @@ int main()
 	printf("Account A balance: %d\n", account_a);
 	printf("Account B balance: %d\n", account_b);
 
+	//mtx_destroy(&transfer_lock);
+
 	return 0;
 }
-
