@@ -6,6 +6,7 @@
 #define NPHILOSOPHERS 5
 
 thrd_t threads[NPHILOSOPHERS];
+int params[NPHILOSOPHERS];
 
 mtx_t forks[NPHILOSOPHERS];
 
@@ -33,7 +34,7 @@ void sleep()
 
 int philosopher_thread(void* param)
 {
-	int philosopher = (int)param;
+	int philosopher = *(int*)param;
 	int fork1 = left_fork(philosopher);
 	int fork2 = right_fork(philosopher);
 	int mtx_result;
@@ -70,7 +71,8 @@ int main()
 		assert(r == thrd_success);
 	}
 	for (int i = 0; i < NPHILOSOPHERS; ++i) {
-		int r = thrd_create(&threads[i], philosopher_thread, (void *)i);
+		params[i] = i;
+		int r = thrd_create(&threads[i], philosopher_thread, &params[i]);
 		assert(r == thrd_success);
 	}
 	printf("Philosophers ready. Press <ENTER> to exit.\n");
