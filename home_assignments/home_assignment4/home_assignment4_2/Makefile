@@ -1,7 +1,7 @@
 .PHONY: run debug clean
 
 CC=cc
-CFLAGS=-Wall -g -Og
+CFLAGS=-Wall -Werror -g -Og
 LDFLAGS=
 
 main: main.c

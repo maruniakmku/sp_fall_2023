@@ -57,7 +57,7 @@ void sleep()
 
 int philosopher_thread(void* param)
 {
-	int philosopher = param;
+	int philosopher = *(int*)param;
 	int fork1 = left_fork(philosopher);
 	int fork2 = right_fork(philosopher);
 	int mtx_result;
@@ -88,18 +88,21 @@ int philosopher_thread(void* param)
 
 		semaphore_release(&waiter);
 	}
+	return 0;
 }
 
 int main()
 {
 	thrd_t threads[NPHILOSOPHERS];
+	int params[NPHILOSOPHERS];
 	semaphore_init(&waiter, NPHILOSOPHERS - 1);
 	for (int i = 0; i < NPHILOSOPHERS; ++i) {
 		int r = mtx_init(&forks[i], mtx_plain);
 		assert(r == thrd_success);
 	}
 	for (int i = 0; i < NPHILOSOPHERS; ++i) {
-		int r = thrd_create(&threads[i], philosopher_thread, i);
+		params[i] = i;
+		int r = thrd_create(&threads[i], philosopher_thread, &params[i]);
 		assert(r == thrd_success);
 	}
 	printf("Philosophers ready. Press <ENTER> to exit.\n");
